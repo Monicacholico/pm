@@ -8,12 +8,20 @@ export function setupCounter(element) {
   setCounter(0)
 }
 
+let today = new Date().toDateString();
+let today1 = new Date().toLocaleDateString('en-us', { year: 'numeric', month: 'short', day: 'numeric'});
+let today2 = new Date().toISOString();
+console.log(today);
+console.log(today1);
+console.log(today2);
+let todayDate = today2.slice(0, 10);
+console.log(today2.slice(0, 10));
 
 const articleTemplate = document.getElementById('article');
 const articleDisplayer = document.getElementById('articles');
 // const API_KEY = 7d3296e1e55d4d57a6c3c7c7e814f2fd;
 const executeApiEn = () => {
-  const url = `https://newsapi.org/v2/everything?q=gender&searchIn=title&apiKey=7d3296e1e55d4d57a6c3c7c7e814f2fd`;
+  const url = `https://newsapi.org/v2/everything?q=gender&from=${todayDate}&to=${todayDate}&searchIn=title&apiKey=7d3296e1e55d4d57a6c3c7c7e814f2fd`;
   const options = {
     method: "GET",
     header: {

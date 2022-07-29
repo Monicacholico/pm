@@ -2,6 +2,16 @@ import '../scss/style.scss'
 import javascriptLogo from '../assets/javascript.svg'
 import { setupCounter } from './counter.js'
 
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import {DrawSVGPlugin} from "gsap/dist/DrawSVGPlugin";
+import {MotionPathPlugin} from "gsap/dist/MotionPathPlugin";
+import {GSDevTools} from "gsap/dist/GSDevTools";
+
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin, GSDevTools);
+
+GSDevTools.create();
+
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -18,6 +28,11 @@ document.querySelector('#app').innerHTML = `
       Click on the Vite logo to learn more
     </p>
   </div>
+  <section>
+  <div class=wrapper>
+    <h3></h3>
+  </div>
+  </section>
 `
 
 setupCounter(document.querySelector('#counter'))
